@@ -1,0 +1,33 @@
+<div class="container">
+  
+  <div id="new-blog-link">
+    <%= link_to '思考する', new_thinking_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="row">
+    <% @thinkings.each do |thinking| %>
+      <div class="col-xs-12 col-md-12 blog-panel">
+        <h2><%= thinking.factor %></h2>
+        <p><%= thinking.created_at %></p>
+        <p><%= thinking.updated_at %></p>
+          <div class="blog-links">
+            <%= link_to 'Show', thinking, class: 'btn btn-default' %>
+            <%= link_to 'Edit', edit_thinking_path(thinking), class: 'btn btn-info' %> |
+            <%= link_to 'Destroy', thinking, method: :delete, data: { confirm: '思考を削除してもよろしいですか？' }, class: 'btn btn-danger' %>
+          </div>
+       </div>
+    <% end %>
+  </div>
+</div>
+
+  <h1>
+    routine一覧
+  </h1>
+
+  <div class="row">
+    <% @routine_actions.each do |thinking| %>
+      <div class="col-xs-12 col-md-12 blog-panel">
+        <h2><%= thinking.factor %></h2>
+      </div>
+    <% end %>
+  </div>

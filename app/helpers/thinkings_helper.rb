@@ -1,0 +1,2 @@
+module ThinkingsHelper
+end

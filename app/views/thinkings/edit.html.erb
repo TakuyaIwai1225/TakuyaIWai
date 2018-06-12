@@ -1,0 +1,55 @@
+<% provide(:title, 'Thinking') %>
+<h1>Update Your Thinkings!</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    
+    <% if @thinking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@thinking.errors.count, "error") %> prohibited this @user from being saved:</h2>
+        <ul>
+        <% @thinking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      
+    <%= form_for(@thinking) do |f| %>
+      
+      <%= f.label :factor %>
+      <%= f.text_field :factor, class: 'form-control', placeholder: '手に入れたい要素・スキルを記入してください' %>
+
+      <%= f.label :action_plan1 %>
+      <%= f.text_field :action_plan1, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(1)' %>
+      
+      <%= f.label :action_plan2 %>
+      <%= f.text_field :action_plan2, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(2)' %>
+
+      <%= f.label :action_plan3 %>
+      <%= f.text_field :action_plan3, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(3)' %>
+
+      <%= f.label :action_plan4 %>
+      <%= f.text_field :action_plan4, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(4)' %>
+      
+      <%= f.label :action_plan5 %>
+      <%= f.text_field :action_plan5, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(5)' %>
+      
+      <%= f.label :action_plan6 %>
+      <%= f.text_field :action_plan6, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(6)' %>
+      
+      <%= f.label :action_plan7 %>
+      <%= f.text_field :action_plan7, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(7)' %>
+
+      <%= f.label :action_plan8 %>
+      <%= f.text_field :action_plan8, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(8)' %>
+
+      <%= f.label :action_plan9 %>
+      <%= f.text_field :action_plan9, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(9)' %>
+      
+      <%= f.label :action_plan10 %>
+      <%= f.text_field :action_plan10, class: 'form-control', placeholder: 'そのために継続する必要がある行動を10個ほど記入してください(10)' %>
+
+      <%= f.submit "Update Your thinking", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

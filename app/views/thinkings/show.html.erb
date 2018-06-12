@@ -1,0 +1,25 @@
+<% provide(:title, @thinking.factor) %>
+<div class="row">
+  <aside class="col-md-12">
+    <h1>
+      <%= @thinking.factor %>
+    </h1>
+    <p>
+      <%= @thinking.action_plan1 %><br>     
+      <%= @thinking.action_plan2 %><br>
+      <%= @thinking.action_plan3 %><br> 
+      <%= @thinking.action_plan4 %><br> 
+      <%= @thinking.action_plan5 %><br> 
+      <%= @thinking.action_plan6 %><br>       
+      <%= @thinking.action_plan7 %><br> 
+      <%= @thinking.action_plan8 %><br> 
+      <%= @thinking.action_plan9 %><br> 
+      <%= @thinking.action_plan10 %><br> 
+    </p> 
+    <% if @relationship.present? %>
+      <%= link_to 'Routineを解除する', relationship_path(id: @relationship.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'Routineへ', relationships_path(thinking_id: @thinking.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  </aside>
+</div>

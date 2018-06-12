@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531072619) do
+ActiveRecord::Schema.define(version: 20180610135715) do
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "thinking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "thinkings", force: :cascade do |t|
+    t.string "factor"
+    t.string "action_plan1"
+    t.string "action_plan2"
+    t.string "action_plan3"
+    t.string "action_plan4"
+    t.string "action_plan5"
+    t.string "action_plan6"
+    t.string "action_plan7"
+    t.string "action_plan8"
+    t.string "action_plan9"
+    t.string "action_plan10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_thinkings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -19,7 +44,9 @@ ActiveRecord::Schema.define(version: 20180531072619) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.integer "thinking_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["thinking_id"], name: "index_users_on_thinking_id"
   end
 
 end

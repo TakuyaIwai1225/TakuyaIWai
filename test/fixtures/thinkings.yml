@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  factor: MyString
+  action_plan1: MyString
+  action_plan2: MyString
+  action_plan3: MyString
+  action_plan4: MyString
+  action_plan5: MyString
+  action_plan6: MyString
+  action_plan7: MyString
+  action_plan8: MyString
+  action_plan9: MyString
+  action_plan10: MyString
+
+two:
+  factor: MyString
+  action_plan1: MyString
+  action_plan2: MyString
+  action_plan3: MyString
+  action_plan4: MyString
+  action_plan5: MyString
+  action_plan6: MyString
+  action_plan7: MyString
+  action_plan8: MyString
+  action_plan9: MyString
+  action_plan10: MyString
