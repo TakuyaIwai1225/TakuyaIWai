@@ -1,12 +1,11 @@
 <div class="container">
-  
   <div id="new-blog-link">
     <%= link_to '思考する', new_thinking_path, class: "btn btn-primary" %>
   </div>
 
   <div class="row">
     <% @thinkings.each do |thinking| %>
-      <div class="col-xs-12 col-md-12 blog-panel">
+      <div class="col-xs-12 col-md-12 panel panel-default">
         <h2><%= thinking.factor %></h2>
         <p><%= thinking.created_at %></p>
         <p><%= thinking.updated_at %></p>
@@ -18,11 +17,13 @@
        </div>
     <% end %>
   </div>
-</div>
+  <%= will_paginate @thinking %>
 
-  <h1>
-    routine一覧
-  </h1>
+  <div class="routine_index">
+    <h1>
+      routine一覧
+    </h1>
+  </div>
 
   <div class="row">
     <% @routine_actions.each do |thinking| %>
@@ -31,3 +32,4 @@
       </div>
     <% end %>
   </div>
+</div>

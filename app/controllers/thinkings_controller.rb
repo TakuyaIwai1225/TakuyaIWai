@@ -30,7 +30,7 @@ class ThinkingsController < ApplicationController
   end
 
   def index
-    @thinkings = Thinking.all
+    @thinkings = Thinking.paginate(page: params[:page], per_page: 2)
     @routine_actions = current_user.routine_actions
   end
 
@@ -39,14 +39,26 @@ class ThinkingsController < ApplicationController
     @relationship = current_user.relationships.find_by(thinking_id: @thinking.id)
   end
   
-  def routine
-    @routine_actions = current_user.routine_actions
-  end
-  
   def destroy
     Thinking.find(params[:id]).destroy
     flash[:danger] = "思考を削除しました!"
     redirect_to thinkings_path
+  end  
+
+  def routine
+    @routine_actions = current_user.routine_actions
+  end
+  
+  def download
+    respond_to do |format|
+        format.html
+        format.pdf do
+            render :pdf      => 'routine_check_sheet', # 出力される際のファイル名
+                   :template => 'download.pdf.erb', # どのViewファイルを使用するか
+                   :layout   => 'pdf.html.erb', # どのレイアウトファイルを使用するか
+                   :encoding => 'UTF-8' # 日本語を使う場合は指定してください
+        end
+    end  
   end
   
   private
