@@ -5,6 +5,7 @@
 
   <div class="row">
     <% @thinkings.each do |thinking| %>
+      <% if current_user.id == thinking.user_id %>
       <div class="col-xs-12 col-md-12 panel panel-default">
         <h2><%= thinking.factor %></h2>
         <p><%= thinking.created_at %></p>
@@ -15,8 +16,10 @@
             <%= link_to 'Destroy', thinking, method: :delete, data: { confirm: '思考を削除してもよろしいですか？' }, class: 'btn btn-danger' %>
           </div>
        </div>
+      <% end %>
     <% end %>
   </div>
+
   <%= will_paginate @thinking %>
 
   <div class="routine_index">
