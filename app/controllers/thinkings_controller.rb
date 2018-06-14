@@ -32,7 +32,7 @@ class ThinkingsController < ApplicationController
   end
 
   def index
-    @thinkings = Thinking.paginate(page: params[:page], per_page: 2)
+    @thinkings = Thinking.all
     @routine_actions = current_user.routine_actions
   end
 
