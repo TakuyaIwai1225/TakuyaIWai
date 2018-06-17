@@ -52,12 +52,12 @@ class ThinkingsController < ApplicationController
   
   def download
     respond_to do |format|
-        format.html
-        format.pdf do
-            render :pdf      => 'routine_check_sheet', # 出力される際のファイル名
-                   :template => 'download.pdf.erb', # どのViewファイルを使用するか
-                   :layout   => 'pdf.html.erb', # どのレイアウトファイルを使用するか
-                   :encoding => 'UTF-8' # 日本語を使う場合は指定してください
+      format.html
+      format.pdf do
+          render pdf:                            'routine_check_sheet',#出力されるファイル名
+                 template:                       'thinking/download',#どのviewファイルを使うか？
+                 layout:                         'pdf',#ここでlayoutsを呼び出す
+                 encoding:                       'UFT-8'  #日本語にしたければUFT-8に指定すること
         end
     end  
   end
